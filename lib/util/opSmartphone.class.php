@@ -36,7 +36,7 @@ class opSmartphone
 
   public function isSmartphone()
   {
-    if (preg_match('/(iPhone)|(iPod)|(BlackBerry)|(Windows Phone)|(Symbian)|(Android)|(Emacs-w3m)/', $_SERVER['HTTP_USER_AGENT']))
+    if (preg_match('/(iPhone)|(iPod)|(iPad)|(BlackBerry)|(Windows Phone)|(Symbian)|(Android)|(Emacs-w3m)/', $_SERVER['HTTP_USER_AGENT']))
     {
       return true;
     }
