@@ -9,3 +9,7 @@ config/routing.yml:
 config/view.yml:
   class:    opViewConfigHandler
   file:     %SF_LIB_DIR%/config/opViewConfigHandler.class.php
+
+config/view_smart.yml:
+  class:    opViewConfigHandler
+  file:     %SF_LIB_DIR%/config/opViewConfigHandler.class.php
