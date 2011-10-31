@@ -29,7 +29,8 @@ error_reporting($old_error_level);
 // decide an application that should load
 if ($is_smartphone)
 {
-  $configuration = ProjectConfiguration::getApplicationConfiguration('smartphone_frontend', 'prod', false);
+  //$configuration = ProjectConfiguration::getApplicationConfiguration('smartphone_frontend', 'prod', false);
+  $configuration = ProjectConfiguration::getApplicationConfiguration('pc_frontend', 'prod', false);
 }
 elseif ($is_mobile)
 {

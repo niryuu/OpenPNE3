@@ -159,7 +159,14 @@ class opView extends sfPHPView
     }
     else
     {
-      $this->directory = $this->context->getConfiguration()->getTemplateDir($this->moduleName, $template) . '/smartphone';
+      if (sfConfig::get('op_is_smartphone'))
+      {
+        $this->directory = $this->context->getConfiguration()->getTemplateDir($this->moduleName, $template) . '/smartphone';
+      }
+      else
+      {
+        $this->directory = $this->context->getConfiguration()->getTemplateDir($this->moduleName, $template);
+      }
       $this->template = $template;
     }
   }
@@ -197,7 +204,14 @@ class opView extends sfPHPView
     }
     else
     {
-      $this->decoratorDirectory = $this->context->getConfiguration()->getDecoratorDir($template) . '/smartphone';
+      if (sfConfig::get('op_is_smartphone'))
+      {
+        $this->decoratorDirectory = $this->context->getConfiguration()->getDecoratorDir($template) . '/smartphone';
+      }
+      else
+      {
+        $this->decoratorDirectory = $this->context->getConfiguration()->getDecoratorDir($template);
+      }
       $this->decoratorTemplate = $template;
     }
 
@@ -216,7 +230,14 @@ class opView extends sfPHPView
     $this->context->set('view_instance', $this);
 
     // require our configuration
-    require($this->context->getConfigCache()->checkConfig('modules/'.$this->moduleName.'/config/view_smart.yml'));
+    if (sfConfig::get('op_is_smartphone'))
+    {
+      require($this->context->getConfigCache()->checkConfig('modules/'.$this->moduleName.'/config/view_smart.yml'));
+    }
+    else
+    {
+      require($this->context->getConfigCache()->checkConfig('modules/'.$this->moduleName.'/config/view.yml'));
+    }
 
     // set template directory
     if (!$this->directory)

@@ -9,12 +9,22 @@
  */
 
 require_once dirname(__FILE__).'/../../../lib/config/opApplicationConfiguration.class.php';
+require_once dirname(__FILE__).'/../../../lib/util/opSmartphone.class.php';
 
 class pc_frontendConfiguration extends opApplicationConfiguration
 {
   public function configure()
   {
     sfConfig::set('op_is_use_captcha', true);
+    $is_smartphone = opSmartphone::getInstance()->isSmartphone();
+    if ($is_smartphone)
+    {
+      sfConfig::set('op_is_smartphone', true);
+    }
+    //else
+    //{
+    //  sfConfig::set('op_is_smartphone', false);
+    //}
   }
 
   public function initialize()
