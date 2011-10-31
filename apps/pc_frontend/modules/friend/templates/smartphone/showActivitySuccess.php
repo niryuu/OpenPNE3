@@ -2,7 +2,7 @@
 
 <ul data-role="listview">
   <li><span align="center">
-    <form action="<?php echo url_for('friend/showActivity') ?>" method="post">
+    <form action="<?php echo url_for('member/updateActivity') ?>" method="post">
     <input type="hidden" name="activity_data[id]" />
     <input type="hidden" name="activity_data[next_uri]" value="friend/showActivity" />
     <input type="hidden" name="activity_data[<?php echo $form->getCSRFFieldName() ?>]" value="<?php echo $form->getCSRFToken() ?>" />
@@ -19,6 +19,10 @@
     </fieldset>
     <button type="submit" data-theme="a">アクティビティ投稿</button>
     </form>
+    <?php use_javascript('op_activity'); ?>
+    <script type="text/javascript">
+      new opActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity') ?>");
+    </script>
     </span>
   </li>
 <?php foreach ($pager->getResults() as $activityData): ?>
