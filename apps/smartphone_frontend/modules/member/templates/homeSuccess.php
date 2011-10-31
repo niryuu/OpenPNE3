@@ -22,8 +22,6 @@ function footer()
     <ul data-role="listview" data-inset="true" data-theme="e">
     <li data-role="list-divider">新着情報</li>
     <li>test</li>
-    <?php include_component('diary', 'noticeUnreadDiaryComment') ?>
-    <?php include_component('message', 'unreadMessage') ?>
     </ul>
     <br />
     <ul data-role="listview">
